@@ -9,16 +9,15 @@ theme:
   favicon: assets/favicon.ico
   palette:
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: custom
-      accent: custom
+      scheme: astral-dark
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: custom
-      accent: custom
+      scheme: astral-light
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
