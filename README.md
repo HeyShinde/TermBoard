@@ -2,9 +2,9 @@
   <h1>🎯 TermBoard</h1>
   <p><b>A beautiful, interactive terminal dashboard for Python projects, environments, and tasks.</b></p>
   <br>
-  <img src="assets/screenshot-3.png" alt="TermBoard Tasks UI" width="600">
+  <img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-3.png" alt="TermBoard Tasks UI" width="600">
   <br>
-  <img src="assets/screenshot-4.png" alt="TermBoard Settings UI" width="600">
+  <img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-4.png" alt="TermBoard Settings UI" width="600">
 </div>
 
 ---

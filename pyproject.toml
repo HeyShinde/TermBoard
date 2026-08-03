@@ -4,10 +4,31 @@ version = "0.1.0"
 description = "A beautiful terminal UI dashboard for managing Python projects, virtual environments, and tasks."
 readme = "README.md"
 requires-python = ">=3.13"
+authors = [
+    { name = "Aditya Shinde" }
+]
+keywords = ["terminal", "tui", "dashboard", "textual", "task-runner", "virtual-environment", "python"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Terminals",
+]
 dependencies = [
     "textual>=8.2.8",
     "typer>=0.27.0",
 ]
+
+[project.urls]
+Homepage = "https://heyshinde.github.io/TermBoard/"
+Documentation = "https://heyshinde.github.io/TermBoard/"
+Repository = "https://github.com/HeyShinde/TermBoard"
+Issues = "https://github.com/HeyShinde/TermBoard/issues"
 
 [project.scripts]
 termboard = "termboard.cli:main"
