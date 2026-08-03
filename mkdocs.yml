@@ -8,21 +8,21 @@ theme:
   logo: assets/logo.png
   favicon: assets/favicon.ico
   palette:
-    - scheme: slate
-      primary: deep purple
-      accent: deep purple
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-    - scheme: default
-      primary: deep purple
-      accent: deep purple
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
   features:
-    - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.sections
     - navigation.instant
     - navigation.instant.progress
@@ -31,6 +31,11 @@ theme:
     - header.autohide
     - toc.integrate
     - content.code.copy
+    - search.suggest
+    - search.highlight
+
+extra_css:
+  - stylesheets/extra.css
     - search.suggest
     - search.highlight
 

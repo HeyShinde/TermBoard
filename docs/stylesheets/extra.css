@@ -1,0 +1,46 @@
+/* Custom sleek dark theme inspired by Ruff */
+[data-md-color-scheme="slate"] {
+  --md-hue: 260;
+  
+  /* Very dark background for main content area */
+  --md-default-bg-color: #0f0f14;
+  --md-default-bg-color--light: #15151b;
+  --md-default-bg-color--lighter: #1a1a22;
+  --md-default-bg-color--lightest: #1f1f29;
+  
+  /* Slate/white text */
+  --md-default-fg-color: #e2e2e8;
+  --md-default-fg-color--light: #a9a9b3;
+  --md-default-fg-color--lighter: #80808c;
+  --md-default-fg-color--lightest: #5c5c66;
+  
+  /* Top Navigation Bar */
+  --md-primary-fg-color: #15151b;
+  --md-primary-fg-color--light: #1a1a22;
+  --md-primary-fg-color--dark: #0f0f14;
+  
+  /* Accent color (Yellow/Amber for contrast) */
+  --md-accent-fg-color: #facc15;
+  --md-accent-bg-color: #0f0f14;
+}
+
+[data-md-color-scheme="default"] {
+  --md-hue: 260;
+  
+  /* Navigation Bar (Dark in light mode for contrast) */
+  --md-primary-fg-color: #ffffff;
+  --md-primary-bg-color: #15151b;
+  
+  --md-default-bg-color: #f9f9fb;
+  --md-accent-fg-color: #6366f1; /* Indigo accent */
+}
+
+/* Sidebar transparency */
+.md-nav--primary, .md-sidebar--primary {
+  background-color: transparent !important;
+}
+
+/* Make top nav minimal */
+.md-header {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05);
+}
