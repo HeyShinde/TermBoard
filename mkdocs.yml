@@ -1,7 +1,7 @@
 site_name: TermBoard
 site_url: https://heyshinde.github.io/TermBoard/
 site_description: A beautiful, interactive terminal dashboard for Python projects, environments, and tasks.
-repo_name: HeyShinde/TermBoard
+repo_name: TermBoard v1.0.0
 repo_url: https://github.com/HeyShinde/TermBoard
 theme:
   name: material
@@ -9,15 +9,16 @@ theme:
   favicon: assets/favicon.ico
   palette:
     - media: "(prefers-color-scheme: dark)"
-      scheme: astral-dark
+      scheme: slate
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: astral-light
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
+      scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -35,8 +36,6 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
-    - search.suggest
-    - search.highlight
 
 nav:
   - Home: index.md
