@@ -60,6 +60,13 @@ class SettingsWidget(Static):
                         )
                         yield Switch(id="ignore_global_tasks_switch")
 
+                    with Horizontal(classes="switch_container"):
+                        yield Label(
+                            "Run Tasks Interactively (Suspends UI)",
+                            classes="switch_label",
+                        )
+                        yield Switch(id="project_interactive_switch")
+
                     yield Label("Project Tasks:", classes="tasks_label")
                     yield Vertical(
                         id="project_tasks_container", classes="tasks_container"
@@ -80,6 +87,13 @@ class SettingsWidget(Static):
                     yield Markdown("## Global Settings (`~/.termboard.toml`)")
                     yield Label("Environment Command (e.g., `uv run `):")
                     yield Input(id="input_global_env")
+
+                    with Horizontal(classes="switch_container"):
+                        yield Label(
+                            "Run Tasks Interactively (Suspends UI)",
+                            classes="switch_label",
+                        )
+                        yield Switch(id="global_interactive_switch")
 
                     yield Label("Global Tasks:", classes="tasks_label")
                     yield Vertical(
@@ -112,6 +126,10 @@ class SettingsWidget(Static):
         local_config = load_local_config()
 
         self.query_one("#input_global_env", Input).value = global_config.env_command
+        self.query_one(
+            "#global_interactive_switch", Switch
+        ).value = global_config.interactive_tasks
+
         global_container = self.query_one("#global_tasks_container")
         for name, cmd in global_config.tasks.items():
             global_container.mount(self.create_task_row(name, cmd))
@@ -120,6 +138,9 @@ class SettingsWidget(Static):
         self.query_one(
             "#ignore_global_tasks_switch", Switch
         ).value = local_config.ignore_global_tasks
+        self.query_one(
+            "#project_interactive_switch", Switch
+        ).value = local_config.interactive_tasks
 
         project_container = self.query_one("#project_tasks_container")
         for name, cmd in local_config.tasks.items():
@@ -159,6 +180,9 @@ class SettingsWidget(Static):
         global_config = load_global_config()
         global_config.env_command = global_env
         global_config.tasks = global_tasks
+        global_config.interactive_tasks = self.query_one(
+            "#global_interactive_switch", Switch
+        ).value
         save_global_config(global_config)
 
         self.app.notify("Global settings saved! UI updated.")
@@ -181,6 +205,9 @@ class SettingsWidget(Static):
         local_config.env_command = project_env
         local_config.ignore_global_tasks = ignore_global_tasks
         local_config.tasks = project_tasks
+        local_config.interactive_tasks = self.query_one(
+            "#project_interactive_switch", Switch
+        ).value
         save_local_config(local_config)
 
         self.app.notify("Project settings saved! UI updated.")

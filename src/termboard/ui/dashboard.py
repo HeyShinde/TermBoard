@@ -3,7 +3,6 @@ from textual.app import ComposeResult
 from textual.containers import HorizontalScroll
 from textual.widgets import (
     Button,
-    DataTable,
     Markdown,
     RichLog,
     Static,
@@ -15,6 +14,9 @@ from termboard.core.config import load_config
 from termboard.core.project import get_project_metadata
 from termboard.core.runner import run_command
 from termboard.ui.github_tab import GitHubTab
+from termboard.ui.git_tab import GitTab
+from termboard.ui.dependencies_tab import DependenciesTab
+from termboard.ui.docker_tab import DockerTab
 from termboard.ui.settings import ConfigUpdated, SettingsWidget
 
 
@@ -29,18 +31,6 @@ class ProjectInfoWidget(Static):
 - **Virtual Environment:** {"✅ Active (.venv)" if meta.has_venv else "❌ Missing"}
 """
         yield Markdown(md)
-
-
-class DependenciesWidget(Static):
-    def compose(self) -> ComposeResult:
-        yield DataTable(id="deps_table")
-
-    def on_mount(self) -> None:
-        table = self.query_one(DataTable)
-        table.add_columns("Package Name")
-        meta = get_project_metadata()
-        for dep in meta.dependencies:
-            table.add_row(dep)
 
 
 class TasksWidget(Static):
@@ -87,10 +77,17 @@ class TasksWidget(Static):
 
     @work(exclusive=True)
     async def run_task(self, cmd: str) -> None:
-        log = self.query_one(RichLog)
-        async for line in run_command(cmd):
-            log.write(line.strip())
-        log.write("[bold]Done.[/]")
+        config = load_config()
+        if config.interactive_tasks:
+            import subprocess
+
+            with self.app.suspend():
+                subprocess.run(cmd, shell=True)
+        else:
+            log = self.query_one(RichLog)
+            async for line in run_command(cmd):
+                log.write(line.strip())
+            log.write("[bold]Done.[/]")
 
 
 class Dashboard(Static):
@@ -99,7 +96,11 @@ class Dashboard(Static):
             with TabPane("Project Info", id="project-tab"):
                 yield ProjectInfoWidget()
             with TabPane("Dependencies", id="deps-tab"):
-                yield DependenciesWidget()
+                yield DependenciesTab()
+            with TabPane("Git Status", id="git-tab"):
+                yield GitTab()
+            with TabPane("Services", id="docker-tab"):
+                yield DockerTab()
             with TabPane("Tasks", id="tasks-tab"):
                 yield TasksWidget()
             with TabPane("GitHub", id="github-tab"):

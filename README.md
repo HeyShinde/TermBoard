@@ -1,10 +1,11 @@
 <div align="center">
-  <h1>🎯 TermBoard v1.0.0</h1>
-  <p><b>A beautiful, interactive terminal dashboard for Python projects, environments, and tasks. Now with GitHub Integration!</b></p>
+  <img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/logo.png" alt="TermBoard Logo" width="600">
+  <p><b>A beautiful, interactive terminal dashboard for Python projects, environments, and tasks.</b></p>
   <br>
-  <img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-3.png" alt="TermBoard Tasks UI" width="600">
-  <br>
-  <img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-4.png" alt="TermBoard Settings UI" width="600">
+  
+  [![PyPI](https://img.shields.io/pypi/v/termboard.svg)](https://pypi.org/project/termboard/)
+  [![Python](https://img.shields.io/pypi/pyversions/termboard.svg)](https://pypi.org/project/termboard/)
+  [![License](https://img.shields.io/pypi/l/termboard.svg)](https://github.com/HeyShinde/TermBoard/blob/main/LICENSE)
 </div>
 
 ---
@@ -27,13 +28,43 @@ As developers, we often write `Makefile`s or bash scripts (like `test.sh` or `li
 
 ---
 
-## Features
+## ✨ Features
 
-- **🐙 NEW: GitHub Integration:** View your open Pull Requests, check them out locally with a click, and monitor your GitHub Actions (CI/CD) pipelines directly from the TUI!
-- **Project Info:** Instantly see your project's version, python requirements, and virtual environment status.
-- **Dependency Viewer:** A clean data table of all your project's dependencies parsed directly from `pyproject.toml`.
-- **Dynamic Tasks Engine:** Clickable buttons for your workflows (e.g., `pytest`, `ruff`) that execute asynchronously.
-- **In-App Settings:** Override environment variables, add new custom tasks, and save configurations globally without leaving the terminal.
+### 📋 Project Info
+Instantly see your project's version, python requirements, and virtual environment status.
+<br>
+<img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-1.png" alt="Project Info" width="800">
+
+### 📦 Visual Package Manager (PyPI)
+Search PyPI for packages, read descriptions, and install directly using `uv add` natively in the terminal.
+<br>
+<img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-2.png" alt="Visual Package Manager" width="800">
+
+### 🌿 Git Integration
+Shows current branch, uncommitted changes, and provides actions to stage, unstage, commit, and push.
+<br>
+<img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-3.png" alt="Git Status" width="800">
+
+### 🐳 Docker Services
+View, start, stop, and delete running Docker containers without leaving the dashboard.
+<br>
+<img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-4.png" alt="Docker Services" width="800">
+
+### 🚀 Task Runner
+Define and execute custom project tasks via `./termboard.toml` or `~/.termboard.toml`. Toggle interactive tasks to suspend the UI!
+<br>
+<img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-5.png" alt="Task Runner" width="800">
+
+### 🐙 GitHub Integration
+Browse active pull requests, monitor GitHub Actions workflow statuses, and track Issues natively.
+<br>
+<img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-6.png" alt="GitHub Integration" width="800">
+
+### ⚙️ In-App Settings & 📁 Global Workspaces
+Override environment variables, add new custom tasks, and save configurations globally. Easily switch between your recent projects using the `Ctrl+P` Quick Switcher.
+<br>
+<img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-7.png" alt="Project Settings" width="800">
+<img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-8.png" alt="Global Settings" width="800">
 
 ## Installation
 
@@ -68,9 +99,13 @@ termboard
 uvx termboard
 ```
 
-**If installed locally inside your project's virtual environment:**
-```bash
-uv run termboard
-```
-
 *(If you don't have any custom tasks defined, TermBoard will automatically provide defaults for testing and linting).*
+
+## 💖 Support & Community
+
+If you like TermBoard, please consider supporting the project!
+
+- ⭐️ **Star on GitHub**: [HeyShinde/TermBoard](https://github.com/HeyShinde/TermBoard)
+- 🐞 **Report Issues**: [GitHub Issues](https://github.com/HeyShinde/TermBoard/issues)
+- 💬 **Follow / Contact**: [@heyshinde](https://github.com/HeyShinde)
+- 💖 **Sponsor / Donate**: Press the `s` hotkey directly in the TUI, or visit my [GitHub Sponsors](https://github.com/sponsors/HeyShinde) or [Razorpay](https://razorpay.me/@heyshinde).

@@ -2,9 +2,6 @@
 
 **A beautiful, interactive terminal dashboard for Python projects, environments, and tasks.**
 
-![TermBoard Tasks UI](assets/screenshot-3.png)
-![TermBoard Settings UI](assets/screenshot-4.png)
-
 ## The Problem: "Why not just use a script?"
 
 As developers, we often write `Makefile`s or bash scripts (like `test.sh` or `lint.sh`) to manage our project workflows. While scripts work, they have severe limitations:
@@ -21,9 +18,11 @@ As developers, we often write `Makefile`s or bash scripts (like `test.sh` or `li
 - ⚡ **Asynchronous Streaming:** Tasks run asynchronously in the background. Their output is streamed directly into a beautiful, scrollable Rich Log window without freezing the UI or polluting your terminal history.
 - 🛠️ **Fully Customizable:** Define custom tasks in a `termboard.toml` file. Your team can clone the repo, run `termboard`, and instantly have a UI with clickable buttons for deploying, testing, and building.
 
-## Features
+## 💖 Support & Community
 
-- **Project Info:** Instantly see your project's version, python requirements, and virtual environment status.
-- **Dependency Viewer:** A clean data table of all your project's dependencies parsed directly from `pyproject.toml`.
-- **Dynamic Tasks Engine:** Clickable buttons for your workflows (e.g., `pytest`, `ruff`) that execute asynchronously.
-- **In-App Settings:** Override environment variables, add new custom tasks, and save configurations globally without leaving the terminal.
+If you like TermBoard, please consider supporting the project!
+
+- ⭐️ **Star on GitHub**: [HeyShinde/TermBoard](https://github.com/HeyShinde/TermBoard)
+- 🐞 **Report Issues**: [GitHub Issues](https://github.com/HeyShinde/TermBoard/issues)
+- 💬 **Follow / Contact**: [@heyshinde](https://github.com/HeyShinde)
+- 💖 **Sponsor / Donate**: Press the `s` hotkey directly in the TUI, or visit my [GitHub Sponsors](https://github.com/sponsors/HeyShinde) or [Razorpay](https://razorpay.me/@heyshinde).

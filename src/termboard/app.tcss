@@ -114,3 +114,93 @@ CommandPalette > #--container {
     background: $surface;
     padding: 1 2;
 }
+
+/* Button & Layout Fixes */
+Button {
+    min-width: 12;
+    width: auto;
+    margin-right: 2;
+}
+
+Button:disabled {
+    opacity: 0.5;
+}
+
+.header-bar {
+    height: 1;
+    margin-bottom: 1;
+    align: left middle;
+}
+.header-bar Button {
+    dock: right;
+    margin-right: 1;
+}
+.header-bar .title {
+    text-style: bold;
+    color: $accent;
+    content-align: left middle;
+}
+
+/* Make specific buttons 1-line high so text doesn't clip */
+.header-bar Button,
+.action-bar Button,
+#docker-actions-bar Button,
+#install-bar Button,
+#uninstall-bar Button,
+.git-column-header Button {
+    height: 1;
+    border: none;
+    min-width: 10;
+}
+
+.action-bar, #commit-bar, #docker-actions-bar, #install-bar, #uninstall-bar {
+    height: auto;
+    margin-top: 1;
+    margin-bottom: 1;
+    padding: 0;
+    align: left middle;
+}
+
+.action-bar Button, #commit-bar Button, #docker-actions-bar Button, #install-bar Button, #uninstall-bar Button {
+    margin-right: 2;
+}
+#commit-message {
+    width: 1fr;
+    margin-right: 2;
+}
+
+#pypi-search-bar {
+    height: auto;
+    margin-bottom: 1;
+    align: left middle;
+}
+#pypi-search-bar Input {
+    width: 1fr;
+    margin-right: 2;
+}
+#pypi-search-bar Button {
+    width: auto;
+}
+
+.git-column {
+    width: 1fr;
+    height: 1fr;
+    margin: 0 1;
+}
+.git-column-header {
+    height: 1;
+    align: left middle;
+    margin-bottom: 1;
+}
+.git-column-header Button {
+    dock: right;
+}
+
+#git-tables {
+    height: 1fr;
+    margin-bottom: 1;
+}
+DataTable {
+    height: 1fr;
+}
+

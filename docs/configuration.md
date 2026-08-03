@@ -32,4 +32,5 @@ ignore_global_tasks = true
 - **`env_command`**: The prefix command used to run tasks in the virtual environment. Defaults to empty, but usually `uv run`, `poetry run`, or `pipenv run`. TermBoard tries to auto-detect this, but you can explicitly override it here.
 - **`theme`**: The Textual UI theme to use.
 - **`ignore_global_tasks`**: A boolean that, when true, will ignore any tasks defined in your global `~/.termboard.toml` and only display the project-specific tasks.
+- **`interactive_tasks`**: A boolean that, when true, will suspend the TUI and drop you back into a raw terminal before executing your tasks (perfect for REPLs, ssh, and interactive scripts).
 - **`tasks`**: A dictionary where the key is the label that will appear on the button, and the value is the terminal command to execute.

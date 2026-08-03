@@ -1,7 +1,8 @@
 from textual import work
 from textual.app import ComposeResult
-from textual.containers import Horizontal, VerticalScroll
-from textual.widgets import Button, DataTable, Label
+from textual.containers import Horizontal
+from textual.widgets import Button, DataTable, Label, TabbedContent, TabPane
+from textual.containers import Container
 
 from ..core.github import (
     GitHubError,
@@ -12,7 +13,7 @@ from ..core.github import (
 )
 
 
-class GitHubTab(VerticalScroll):
+class GitHubTab(Container):
     """The GitHub integration tab."""
 
     def compose(self) -> ComposeResult:
@@ -20,14 +21,18 @@ class GitHubTab(VerticalScroll):
             yield Label("🐙 GitHub Integration", classes="title")
             yield Button("Refresh", id="refresh-github", variant="primary")
 
-        yield Label("Pull Requests (Click to Checkout)", classes="section-label")
-        yield DataTable(id="prs-table", cursor_type="row")
+        with TabbedContent(initial="prs-tab"):
+            with TabPane("🔀 Pull Requests", id="prs-tab"):
+                yield Label(
+                    "Click a row to checkout the PR locally.", classes="section-label"
+                )
+                yield DataTable(id="prs-table", cursor_type="row")
 
-        yield Label("GitHub Actions", classes="section-label")
-        yield DataTable(id="actions-table", cursor_type="row")
+            with TabPane("🔄 Actions", id="actions-tab"):
+                yield DataTable(id="actions-table", cursor_type="row")
 
-        yield Label("Open Issues", classes="section-label")
-        yield DataTable(id="issues-table", cursor_type="row")
+            with TabPane("🐛 Issues", id="issues-tab"):
+                yield DataTable(id="issues-table", cursor_type="row")
 
     def on_mount(self) -> None:
         prs_table = self.query_one("#prs-table", DataTable)
