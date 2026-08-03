@@ -1,0 +1,116 @@
+Screen {
+    background: $background;
+    color: $text;
+}
+
+Header {
+    background: $surface;
+    color: $accent;
+}
+
+Footer {
+    background: $surface;
+    color: $secondary;
+}
+
+#buttons {
+    height: auto;
+    margin-bottom: 1;
+}
+
+Button {
+    margin-right: 2;
+}
+
+RichLog {
+    background: #1e293b;
+    border: solid #10b981;
+    height: 1fr;
+}
+
+DataTable {
+    background: #1e293b;
+}
+
+Markdown {
+    margin: 1;
+}
+
+.task_row {
+    height: auto;
+    margin-bottom: 1;
+}
+.task_row Input {
+    width: 1fr;
+}
+.tasks_container {
+    height: auto;
+    max-height: 20;
+    overflow-y: auto;
+}
+
+.tasks_label {
+    margin-top: 1;
+    margin-bottom: 1;
+}
+
+.settings_buttons {
+    height: auto;
+    margin-top: 1;
+}
+
+.switch_container {
+    height: auto;
+    margin-top: 1;
+    margin-bottom: 1;
+}
+
+.switch_label {
+    margin-right: 2;
+    margin-top: 1;
+}
+
+.btn_delete_task {
+    min-width: 5;
+    margin-left: 1;
+}
+
+ConfirmDeleteScreen {
+    align: center middle;
+}
+
+#confirm_dialog {
+    padding: 1 2;
+    background: $surface;
+    border: solid $accent;
+    width: 50;
+    height: auto;
+}
+
+#confirm_label {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2;
+}
+
+#confirm_buttons {
+    align: center middle;
+    height: auto;
+}
+#confirm_buttons Button {
+    margin: 0 2;
+}
+
+CommandPalette {
+    align: center top;
+    background: $background 50%;
+}
+
+CommandPalette > #--container {
+    width: 80%;
+    max-height: 80%;
+    margin-top: 2;
+    border: solid $accent;
+    background: $surface;
+    padding: 1 2;
+}

@@ -1,0 +1,4 @@
+[settings]
+env_command = ""
+theme = "textual-dark"
+
