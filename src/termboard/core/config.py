@@ -1,7 +1,6 @@
 import tomllib
-from pathlib import Path
 from dataclasses import dataclass, field
-from typing import Dict
+from pathlib import Path
 
 
 @dataclass
@@ -9,7 +8,7 @@ class TermBoardConfig:
     env_command: str = ""
     theme: str = "textual-dark"
     ignore_global_tasks: bool = False
-    tasks: Dict[str, str] = field(default_factory=dict)
+    tasks: dict[str, str] = field(default_factory=dict)
 
 
 def get_global_config_path() -> Path:
@@ -30,13 +29,13 @@ def _load_from_path(path: Path) -> TermBoardConfig:
             config.env_command = settings["env_command"]
         elif "command_prefix" in settings:
             config.env_command = settings["command_prefix"]
-            
+
         if "theme" in settings:
             config.theme = settings["theme"]
-            
+
         if "ignore_global_tasks" in settings:
             config.ignore_global_tasks = settings["ignore_global_tasks"]
-            
+
         if "tasks" in data:
             config.tasks.update(data["tasks"])
     return config
@@ -54,18 +53,18 @@ def load_config() -> TermBoardConfig:
     """Loads the merged configuration for execution."""
     config = load_global_config()
     local_config = load_local_config()
-    
+
     if local_config.env_command:
         config.env_command = local_config.env_command
-        
+
     if local_config.ignore_global_tasks:
         config.tasks = {}
-        
+
     config.ignore_global_tasks = local_config.ignore_global_tasks
-    
+
     # Local tasks take precedence in merged view
     config.tasks.update(local_config.tasks)
-    
+
     return config
 
 
@@ -73,11 +72,11 @@ def _save_to_path(config: TermBoardConfig, path: Path) -> None:
     toml_str = "[settings]\n"
     toml_str += f'env_command = "{config.env_command}"\n'
     toml_str += f'theme = "{config.theme}"\n'
-    
+
     if config.ignore_global_tasks:
-        toml_str += 'ignore_global_tasks = true\n'
-        
-    toml_str += '\n'
+        toml_str += "ignore_global_tasks = true\n"
+
+    toml_str += "\n"
 
     if config.tasks:
         toml_str += "[tasks]\n"

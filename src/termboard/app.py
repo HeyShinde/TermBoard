@@ -1,7 +1,8 @@
 from textual.app import App, ComposeResult
-from textual.widgets import Header, Footer
-from termboard.ui.dashboard import Dashboard
+from textual.widgets import Footer, Header
+
 from termboard.core.config import load_config, update_global_theme
+from termboard.ui.dashboard import Dashboard
 
 
 class TermBoardApp(App):

@@ -1,20 +1,21 @@
+from textual import on, work
 from textual.app import ComposeResult
+from textual.containers import HorizontalScroll
 from textual.widgets import (
-    TabbedContent,
-    TabPane,
-    Markdown,
     Button,
+    DataTable,
+    Markdown,
     RichLog,
     Static,
-    DataTable,
+    TabbedContent,
+    TabPane,
 )
-from textual.containers import Vertical, Horizontal, HorizontalScroll
-from textual import work, on
 
+from termboard.core.config import load_config
 from termboard.core.project import get_project_metadata
 from termboard.core.runner import run_command
-from termboard.core.config import load_config
-from termboard.ui.settings import SettingsWidget, ConfigUpdated
+from termboard.ui.github_tab import GitHubTab
+from termboard.ui.settings import ConfigUpdated, SettingsWidget
 
 
 class ProjectInfoWidget(Static):
@@ -101,6 +102,8 @@ class Dashboard(Static):
                 yield DependenciesWidget()
             with TabPane("Tasks", id="tasks-tab"):
                 yield TasksWidget()
+            with TabPane("GitHub", id="github-tab"):
+                yield GitHubTab()
             with TabPane("Settings", id="settings-tab"):
                 yield SettingsWidget()
 

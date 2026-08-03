@@ -1,7 +1,6 @@
 import tomllib
-from pathlib import Path
 from dataclasses import dataclass
-from typing import Dict, Any, List
+from pathlib import Path
 
 
 @dataclass
@@ -11,7 +10,7 @@ class ProjectMetadata:
     description: str
     has_venv: bool
     python_version: str
-    dependencies: List[str]
+    dependencies: list[str]
     env_command: str
 
 

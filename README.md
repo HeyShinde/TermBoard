@@ -1,6 +1,6 @@
 <div align="center">
-  <h1>🎯 TermBoard</h1>
-  <p><b>A beautiful, interactive terminal dashboard for Python projects, environments, and tasks.</b></p>
+  <h1>🎯 TermBoard v1.0.0</h1>
+  <p><b>A beautiful, interactive terminal dashboard for Python projects, environments, and tasks. Now with GitHub Integration!</b></p>
   <br>
   <img src="https://raw.githubusercontent.com/HeyShinde/TermBoard/refs/heads/main/assets/screenshot-3.png" alt="TermBoard Tasks UI" width="600">
   <br>
@@ -29,6 +29,7 @@ As developers, we often write `Makefile`s or bash scripts (like `test.sh` or `li
 
 ## Features
 
+- **🐙 NEW: GitHub Integration:** View your open Pull Requests, check them out locally with a click, and monitor your GitHub Actions (CI/CD) pipelines directly from the TUI!
 - **Project Info:** Instantly see your project's version, python requirements, and virtual environment status.
 - **Dependency Viewer:** A clean data table of all your project's dependencies parsed directly from `pyproject.toml`.
 - **Dynamic Tasks Engine:** Clickable buttons for your workflows (e.g., `pytest`, `ruff`) that execute asynchronously.
@@ -38,24 +39,38 @@ As developers, we often write `Makefile`s or bash scripts (like `test.sh` or `li
 
 TermBoard is designed to be installed globally on your machine so you can run it inside *any* Python project.
 
-**Using `uv` (Recommended):**
-
+**1. Using `uv` (Recommended):**
 ```bash
 uv tool install termboard
 ```
 
-**Using `pipx`:**
-
+**2. Using `pipx`:**
 ```bash
 pipx install termboard
 ```
 
-## Quick Start
+**3. Using `pip`:**
+```bash
+pip install termboard
+```
 
-Navigate to any Python project directory and simply type:
+## Quick Start & Usage
 
+Navigate to any Python project directory and use one of the following commands:
+
+**If installed globally (via uv tool, pipx, or global pip):**
 ```bash
 termboard
+```
+
+**If you want to run it dynamically without installing:**
+```bash
+uvx termboard
+```
+
+**If installed locally inside your project's virtual environment:**
+```bash
+uv run termboard
 ```
 
 *(If you don't have any custom tasks defined, TermBoard will automatically provide defaults for testing and linting).*

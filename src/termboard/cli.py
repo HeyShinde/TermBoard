@@ -1,4 +1,5 @@
 import typer
+
 from termboard.app import TermBoardApp
 
 app = typer.Typer(help="TermBoard: The TUI Dashboard for Python projects")

@@ -1,8 +1,8 @@
 import asyncio
-from typing import AsyncGenerator
+from collections.abc import AsyncGenerator
 
 
-async def run_command(cmd: str) -> AsyncGenerator[str, None]:
+async def run_command(cmd: str) -> AsyncGenerator[str]:
     """Runs a shell command asynchronously and yields its output line by line."""
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.STDOUT

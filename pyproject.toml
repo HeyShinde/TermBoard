@@ -1,11 +1,11 @@
 [project]
 name = "termboard"
-version = "0.1.2"
+version = "1.0.0"
 description = "A beautiful terminal UI dashboard for managing Python projects, virtual environments, and tasks."
 readme = "README.md"
 requires-python = ">=3.13"
 authors = [
-    { name = "Shinde Aditya", email = "heyshinde@icloud.com" }
+    { name = "Shinde Aditya", email = "aditya@shindeaditya.com" }
 ]
 keywords = ["terminal", "tui", "dashboard", "textual", "task-runner", "virtual-environment", "python"]
 classifiers = [
@@ -45,6 +45,7 @@ dev = [
     "mkdocs-material>=9.7.7",
     "pytest>=9.1.1",
     "ruff>=0.16.1",
+    "pre-commit>=4.0.0",
 ]
 
 

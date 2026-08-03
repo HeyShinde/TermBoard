@@ -1,8 +1,18 @@
 from textual.app import ComposeResult
-from textual.widgets import Static, Input, Button, Label, Markdown, TabbedContent, TabPane, Switch
-from textual.containers import Vertical, Horizontal, VerticalScroll
-from textual.screen import ModalScreen
+from textual.containers import Horizontal, Vertical, VerticalScroll
 from textual.message import Message
+from textual.screen import ModalScreen
+from textual.widgets import (
+    Button,
+    Input,
+    Label,
+    Markdown,
+    Static,
+    Switch,
+    TabbedContent,
+    TabPane,
+)
+
 from termboard.core.config import (
     load_global_config,
     load_local_config,
@@ -13,7 +23,6 @@ from termboard.core.config import (
 
 class ConfigUpdated(Message):
     """Fired when the user saves new configurations."""
-    pass
 
 
 class ConfirmDeleteScreen(ModalScreen[bool]):
@@ -45,16 +54,27 @@ class SettingsWidget(Static):
                     yield Input(id="input_project_env")
 
                     with Horizontal(classes="switch_container"):
-                        yield Label("Ignore Global Tasks (Only show tasks defined in this project)", classes="switch_label")
+                        yield Label(
+                            "Ignore Global Tasks (Only show tasks defined in this project)",
+                            classes="switch_label",
+                        )
                         yield Switch(id="ignore_global_tasks_switch")
 
                     yield Label("Project Tasks:", classes="tasks_label")
-                    yield Vertical(id="project_tasks_container", classes="tasks_container")
-                    
+                    yield Vertical(
+                        id="project_tasks_container", classes="tasks_container"
+                    )
+
                     with Horizontal(classes="settings_buttons"):
-                        yield Button("Add Project Task", id="btn_add_project", variant="primary")
-                        yield Button("Save Project Configurations", id="btn_save_project", variant="success")
-                        
+                        yield Button(
+                            "Add Project Task", id="btn_add_project", variant="primary"
+                        )
+                        yield Button(
+                            "Save Project Configurations",
+                            id="btn_save_project",
+                            variant="success",
+                        )
+
             with TabPane("Global Settings", id="global-settings"):
                 with VerticalScroll():
                     yield Markdown("## Global Settings (`~/.termboard.toml`)")
@@ -62,11 +82,19 @@ class SettingsWidget(Static):
                     yield Input(id="input_global_env")
 
                     yield Label("Global Tasks:", classes="tasks_label")
-                    yield Vertical(id="global_tasks_container", classes="tasks_container")
-                    
+                    yield Vertical(
+                        id="global_tasks_container", classes="tasks_container"
+                    )
+
                     with Horizontal(classes="settings_buttons"):
-                        yield Button("Add Global Task", id="btn_add_global", variant="primary")
-                        yield Button("Save Global Configurations", id="btn_save_global", variant="success")
+                        yield Button(
+                            "Add Global Task", id="btn_add_global", variant="primary"
+                        )
+                        yield Button(
+                            "Save Global Configurations",
+                            id="btn_save_global",
+                            variant="success",
+                        )
 
     def on_mount(self) -> None:
         self.load_settings_into_ui()
@@ -89,8 +117,10 @@ class SettingsWidget(Static):
             global_container.mount(self.create_task_row(name, cmd))
 
         self.query_one("#input_project_env", Input).value = local_config.env_command
-        self.query_one("#ignore_global_tasks_switch", Switch).value = local_config.ignore_global_tasks
-        
+        self.query_one(
+            "#ignore_global_tasks_switch", Switch
+        ).value = local_config.ignore_global_tasks
+
         project_container = self.query_one("#project_tasks_container")
         for name, cmd in local_config.tasks.items():
             project_container.mount(self.create_task_row(name, cmd))
@@ -130,14 +160,16 @@ class SettingsWidget(Static):
         global_config.env_command = global_env
         global_config.tasks = global_tasks
         save_global_config(global_config)
-        
+
         self.app.notify("Global settings saved! UI updated.")
         self.post_message(ConfigUpdated())
 
     def save_project_settings(self) -> None:
         project_env = self.query_one("#input_project_env", Input).value
-        ignore_global_tasks = self.query_one("#ignore_global_tasks_switch", Switch).value
-        
+        ignore_global_tasks = self.query_one(
+            "#ignore_global_tasks_switch", Switch
+        ).value
+
         project_tasks = {}
         for row in self.query_one("#project_tasks_container").query(".task_row"):
             name = row.query(".task_name").first(Input).value
