@@ -1,38 +1,51 @@
-/* Custom sleek dark theme inspired by Ruff */
-[data-md-color-scheme="slate"] {
-  --md-hue: 260;
-  
-  /* Very dark background for main content area */
-  --md-default-bg-color: #0f0f14;
-  --md-default-bg-color--light: #15151b;
-  --md-default-bg-color--lighter: #1a1a22;
-  --md-default-bg-color--lightest: #1f1f29;
-  
-  /* Slate/white text */
-  --md-default-fg-color: #e2e2e8;
-  --md-default-fg-color--light: #a9a9b3;
-  --md-default-fg-color--lighter: #80808c;
-  --md-default-fg-color--lightest: #5c5c66;
-  
-  /* Top Navigation Bar */
-  --md-primary-fg-color: #15151b;
-  --md-primary-fg-color--light: #1a1a22;
-  --md-primary-fg-color--dark: #0f0f14;
-  
-  /* Accent color (Yellow/Amber for contrast) */
-  --md-accent-fg-color: #facc15;
-  --md-accent-bg-color: #0f0f14;
+:root {
+  --black: #261230;
+  --white: #ffffff;
+  --radiate: #d7ff64;
+  --flare: #6340ac;
+  --rock: #78876e;
+  --galaxy: #261230;
+  --space: #30173d;
+  --comet: #6f5d6f;
+  --cosmic: #de5fe9;
+  --sun: #ffac2f;
+  --electron: #46ebe1;
+  --aurora: #46eb74;
+  --constellation: #5f6de9;
+  --neutron: #cff3cf;
+  --proton: #f6afbc;
+  --nebula: #cdcbfb;
+  --supernova: #f1aff6;
+  --starlight: #f4f4f1;
+  --lunar: #fbf2fc;
+  --asteroid: #e3cee3;
+  --crater: #f0dfdf;
 }
 
-[data-md-color-scheme="default"] {
-  --md-hue: 260;
-  
-  /* Navigation Bar (Dark in light mode for contrast) */
-  --md-primary-fg-color: #ffffff;
-  --md-primary-bg-color: #15151b;
-  
-  --md-default-bg-color: #f9f9fb;
-  --md-accent-fg-color: #6366f1; /* Indigo accent */
+[data-md-color-scheme="astral-light"] {
+  --md-default-bg-color--dark: var(--black);
+  --md-primary-fg-color: var(--galaxy);
+  --md-typeset-a-color: var(--flare);
+  --md-accent-fg-color: var(--cosmic);
+  --md-default-fg-color--lightest: rgba(0, 0, 0, 0.14);
+}
+
+[data-md-color-scheme="astral-dark"] {
+  --md-default-bg-color: var(--galaxy);
+  --md-default-fg-color: var(--white);
+  --md-default-fg-color--light: var(--white);
+  --md-default-fg-color--lighter: var(--white);
+  --md-default-fg-color--lightest: rgba(255, 255, 255, 0.5);
+  --md-primary-fg-color: var(--space);
+  --md-primary-bg-color: var(--white);
+  --md-accent-fg-color: var(--cosmic);
+
+  --md-typeset-color: var(--white);
+  --md-typeset-a-color: var(--radiate);
+  --md-typeset-mark-color: var(--sun);
+
+  --md-code-fg-color: var(--white);
+  --md-code-bg-color: var(--space);
 }
 
 /* Sidebar transparency */

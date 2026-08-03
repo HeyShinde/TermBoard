@@ -1,5 +1,9 @@
 # TermBoard
 
+[![PyPI](https://img.shields.io/pypi/v/termboard.svg)](https://pypi.org/project/termboard/)
+[![Python](https://img.shields.io/pypi/pyversions/termboard.svg)](https://pypi.org/project/termboard/)
+[![License](https://img.shields.io/pypi/l/termboard.svg)](https://github.com/HeyShinde/TermBoard/blob/main/LICENSE)
+
 **A beautiful, interactive terminal dashboard for Python projects, environments, and tasks.**
 
 ## The Problem: "Why not just use a script?"
