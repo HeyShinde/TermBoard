@@ -1,4 +1,5 @@
 site_name: TermBoard
+site_url: https://heyshinde.github.io/TermBoard/
 site_description: A beautiful, interactive terminal dashboard for Python projects, environments, and tasks.
 theme:
   name: material
