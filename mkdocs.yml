@@ -42,6 +42,12 @@ nav:
   - Features: features.md
   - Installation: installation.md
   - Configuration: configuration.md
+  - Integrations:
+      - Overview: integrations/index.md
+      - FastAPI: integrations/fastapi.md
+      - Django: integrations/django.md
+      - Flask: integrations/flask.md
+      - Streamlit: integrations/streamlit.md
 
 markdown_extensions:
   - pymdownx.highlight:
