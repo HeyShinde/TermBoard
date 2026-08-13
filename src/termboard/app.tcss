@@ -18,6 +18,15 @@ Footer {
     margin-bottom: 1;
 }
 
+#too-small-warning {
+    display: none;
+    height: 1fr;
+    content-align: center middle;
+    text-style: bold;
+    color: $warning;
+    text-align: center;
+}
+
 Button {
     margin-right: 2;
 }
