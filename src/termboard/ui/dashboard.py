@@ -1,4 +1,4 @@
-from textual import on, work
+from textual import events, on, work
 from textual.app import ComposeResult
 from textual.containers import HorizontalScroll
 from textual.widgets import (
@@ -13,10 +13,10 @@ from textual.widgets import (
 from termboard.core.config import load_config
 from termboard.core.project import get_project_metadata
 from termboard.core.runner import run_command
-from termboard.ui.github_tab import GitHubTab
-from termboard.ui.git_tab import GitTab
 from termboard.ui.dependencies_tab import DependenciesTab
 from termboard.ui.docker_tab import DockerTab
+from termboard.ui.git_tab import GitTab
+from termboard.ui.github_tab import GitHubTab
 from termboard.ui.settings import ConfigUpdated, SettingsWidget
 
 
@@ -91,7 +91,14 @@ class TasksWidget(Static):
 
 
 class Dashboard(Static):
+    MIN_WIDTH = 80
+    MIN_HEIGHT = 24
+    TOO_SMALL_MESSAGE = (
+        "Terminal too small. Please resize your window to at least 80x24."
+    )
+
     def compose(self) -> ComposeResult:
+        yield Static(self.TOO_SMALL_MESSAGE, id="too-small-warning")
         with TabbedContent(initial="project-tab"):
             with TabPane("Project Info", id="project-tab"):
                 yield ProjectInfoWidget()
@@ -112,3 +119,14 @@ class Dashboard(Static):
     async def on_config_updated(self, event: ConfigUpdated) -> None:
         tasks_widget = self.query_one(TasksWidget)
         await tasks_widget.reload_buttons()
+
+    def on_resize(self, event: events.Resize) -> None:
+        self._update_minimum_size()
+
+    def _update_minimum_size(self) -> None:
+        too_small = (
+            self.app.size.width < self.MIN_WIDTH
+            or self.app.size.height < self.MIN_HEIGHT
+        )
+        self.query_one("#too-small-warning", Static).display = too_small
+        self.query_one(TabbedContent).display = not too_small
